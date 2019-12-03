@@ -1,7 +1,6 @@
 import fs from "fs";
-import path from "path";
 
-export default {
+const files = {
   getCurrentDirectory: () => {
     return process.cwd();
   },
@@ -11,6 +10,11 @@ export default {
   createDirectory: (dirPath: string) => {
     fs.mkdirSync(dirPath);
   },
+  createDirectoryIfExists: (dirPath: string) => {
+    if (!files.directoryExists(dirPath)) {
+      files.createDirectory(dirPath);
+    }
+  },
   createFiles: (dirPath: string) => {
     const files = ["Index.vue", "index.spec.js", "index.stories.js"];
     files.forEach(file => {
@@ -18,3 +22,5 @@ export default {
     });
   }
 };
+
+export default files;

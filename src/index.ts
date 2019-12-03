@@ -40,19 +40,11 @@ const run = async () => {
       const componentTypeDir = `${componentsDir}/${component.type}`;
       const componentDir = `${componentsDir}/${component.type}/${component.name}`;
 
-      if (!files.directoryExists(componentsDir)) {
-        files.createDirectory(componentsDir);
-      }
-
-      if (!files.directoryExists(componentTypeDir)) {
-        files.createDirectory(componentTypeDir);
-      }
-
-      if (!files.directoryExists(componentDir)) {
-        files.createDirectory(componentDir);
-      }
-
+      files.createDirectoryIfExists(componentsDir);
+      files.createDirectoryIfExists(componentTypeDir);
+      files.createDirectoryIfExists(componentDir);
       files.createFiles(componentDir);
+
       console.log(chalk.green("All done!"));
     } else {
       console.log(chalk.red("exit"));
