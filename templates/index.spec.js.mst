@@ -1,0 +1,8 @@
+import { createLocalVue, mount, shallowMount } from "@vue/test-utils";
+import {{name}} from "@/components/{{type}}/{{name}}";
+
+describe("{{name}}", () => {
+  it("", () => {
+   expect();
+  });
+});

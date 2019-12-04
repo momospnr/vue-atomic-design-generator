@@ -1,5 +1,9 @@
 import fs from "fs";
 
+const jsFiles = fs.readdirSync(`${process.cwd()}/templates`).map(path => {
+  return path.replace(".mst", "");
+});
+
 const files = {
   getCurrentDirectory: () => {
     return process.cwd();
@@ -15,10 +19,10 @@ const files = {
       files.createDirectory(dirPath);
     }
   },
-  createFiles: (dirPath: string) => {
-    const files = ["Index.vue", "index.spec.js", "index.stories.js"];
-    files.forEach(file => {
-      fs.closeSync(fs.openSync(`${dirPath}/${file}`, "w"));
+  createFiles: (dirPath: string, rendered: string[]) => {
+    files.createDirectoryIfExists(dirPath);
+    jsFiles.forEach((file, index) => {
+      fs.writeFileSync(`${dirPath}/${file}`, rendered[index], {encoding: "utf8", flag: "wx"});
     });
   }
 };

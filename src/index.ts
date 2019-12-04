@@ -3,6 +3,7 @@ import chalk from "chalk";
 import figlet from "figlet";
 import inquirer from "./utils/inquirer";
 import files from "./utils/files";
+import render from "./utils/render";
 
 clear();
 
@@ -42,8 +43,7 @@ const run = async () => {
 
       files.createDirectoryIfExists(componentsDir);
       files.createDirectoryIfExists(componentTypeDir);
-      files.createDirectoryIfExists(componentDir);
-      files.createFiles(componentDir);
+      files.createFiles(componentDir, render.renderFiles(component));
 
       console.log(chalk.green("All done!"));
     } else {
