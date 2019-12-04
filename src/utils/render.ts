@@ -1,11 +1,12 @@
 import mustache from "mustache";
 import fs from "fs";
 
-const templateFiles = fs.readdirSync(`${process.cwd()}/templates`);
+const templateDir = `${__dirname}/../../templates`;
+const templateFiles = fs.readdirSync(templateDir);
 const templates: string[] = [];
 
 templateFiles.forEach(templateFile => {
-  templates.push(fs.readFileSync(`${process.cwd()}/templates/${templateFile}`, "utf8"));
+  templates.push(fs.readFileSync(`${templateDir}/${templateFile}`, "utf8"));
 });
 
 export default {

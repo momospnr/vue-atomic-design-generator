@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const jsFiles = fs.readdirSync(`${process.cwd()}/templates`).map(path => {
+const jsFiles = fs.readdirSync(`${__dirname}/../../templates`).map(path => {
   return path.replace(".mst", "");
 });
 
