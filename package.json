@@ -1,8 +1,11 @@
 {
   "name": "vue-atomic-design-generator",
   "version": "0.1.0",
-  "main": "index.js",
+  "bin": {
+    "vue-atomic-design-generator": "./bin/index.js"
+  },
   "repository": "git@github.com:momospnr/vue-atomic-design-generator.git",
+  "description": "A component generator for vue",
   "author": "momospnr <h.tagawa@momoirospanner.app>",
   "license": "MIT",
   "private": false,
