@@ -19,12 +19,12 @@ describe("files", () => {
   test("should be able to create a directory", () => {
     files.createDirectory(testDirectory);
     expect(path.basename(testDirectory)).toBe(testDirectoryName);
-    fs.rmdirSync(testDirectory, { recursive: true });
+    rimraf.sync(testDirectory);
   });
   test("should be able to create a directory if the directory doesnt exist", () => {
     files.createDirectoryIfExists(testDirectory);
     expect(path.basename(testDirectory)).toBe(testDirectoryName);
-    fs.rmdirSync(testDirectory, { recursive: true });
+    rimraf.sync(testDirectory);
   });
   test("should be able to create files", () => {
     files.createFiles(testDirectory, testRendered);
